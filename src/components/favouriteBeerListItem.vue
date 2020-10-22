@@ -1,9 +1,10 @@
 <template>
-<div>
-  <li>{{ beer.name }}</li>
-  <img :class= "small-beer" :src="beer.image_url" alt="beer">
-  <button v-on:click="handleClick" :value='beer'>
-  Delete</button>
+<div class="fave-beer-item">
+  <div id="beer-text">
+    <li>{{ beer.name }}</li>
+    <img class="small-beer" :src="beer.image_url" alt="beer">
+  </div>
+  <button class='delete-button' v-on:click="handleClick" :value='beer'>Delete</button>
 </div>
 </template>
 
@@ -22,5 +23,24 @@ export default {
 </script>
 
 <style>
+  .fave-beer-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 25px;
+    width: 80px;
+    background-color: rgb(240, 107, 59);
+  }
+
+  #beer-text {
+      margin: 10px;
+      padding: 5px;
+  }
+
+  .delete-button {
+      
+  }
 
 </style>
