@@ -1,6 +1,11 @@
-<template>
+<template lang="html">
 <div>
-  <h1>Brewdog List</h1>
+  <h1>Brewdog List</h1> 
+  <label for="select_beer">Select a Beer</label>
+  <select id="select_beer" v-model='selectedBeer'>
+    <option disabled value="">Select a Beer</option>
+    <option v-for="beer in beers" :key="beer.id" :value="beer">{{beer.name}}</option>
+  </select>
 
 </div>
   
@@ -11,7 +16,8 @@ export default {
   name:'App',
   data() {
     return {
-      beers:[]
+      beers:[],
+      selectedBeer:null
     }
   },
   mounted(){
