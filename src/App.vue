@@ -12,7 +12,7 @@
 <button v-if="!favouriteBeers.includes(selectedBeer)" v-on:click="addToFavourites">Add beer to your favourites!
 </button>
 
-<favourite-beers :favouriteBeers="favouriteBeers">
+<favourite-beers v-if='favouriteBeers' :favouriteBeers="favouriteBeers">
   </favourite-beers>
 
 </div>
@@ -22,6 +22,7 @@
 <script>
 import BeerDetail from './components/BeerDetail.vue';
 import FavouriteBeer from './components/FavouriteBeer.vue';
+import {eventBus} from '@/main.js';
 
 export default {
   name:'App',
@@ -33,7 +34,12 @@ export default {
     }
   },
   mounted(){
-    this.getBeers()
+    this.getBeers();
+
+    eventBus.$on('beer-item', (payload) =>{
+      this.favouriteBeers.splice(this.favouriteBeers.indexOf(payload),1)
+      
+    })
   },
 
   methods:{
