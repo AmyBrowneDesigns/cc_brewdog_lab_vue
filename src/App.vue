@@ -1,6 +1,6 @@
 <template lang="html">
 <div>
-  <h1>Brewdog List</h1> 
+  <h1 class= 'main-header'>Brewdog Beerlistr</h1> 
   <label for="select_beer">Select a Beer</label>
   <select id="select_beer" v-model='selectedBeer'>
     <option disabled selected value="">Select a Beer</option>
@@ -12,9 +12,7 @@
 <button v-if="!favouriteBeers.includes(selectedBeer)" v-on:click="addToFavourites">Add beer to your favourites!
 </button>
 
-<favourite-beers v-if='favouriteBeers' :favouriteBeers="favouriteBeers">
-  </favourite-beers>
-
+<favourite-beers v-if='favouriteBeers' :favouriteBeers="favouriteBeers"></favourite-beers>
 </div>
   
 </template>
@@ -65,6 +63,11 @@ export default {
 <style>
 .small-beer {
   height: 80px;
+}
+.main-header {
+  font-family: fantasy;
+  text-align: center;
+  font-size: 100px;
 }
 
 

@@ -32,6 +32,7 @@ export default {
     border-radius: 25px;
     width: 80px;
     background-color: rgb(240, 107, 59);
+    align-items: center;
   }
 
   #beer-text {
